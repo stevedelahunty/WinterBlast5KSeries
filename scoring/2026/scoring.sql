@@ -1,4 +1,4 @@
-
+DROP TABLE IF EXISTS `series_participants_winterblast`;
 CREATE TABLE `series_participants_winterblast` (
   `id` int(4) NOT NULL AUTO_INCREMENT,
   `seriesId` int(4),
@@ -34,5 +34,7 @@ CREATE TABLE `series_participants_winterblast` (
   `divisionPlace2` int(4) default 0,
   `totalRaces1` int(4) default 0,
   `totalRaces2` int(4) default 0,
+  `bestText` varchar(1024) default '',
+  `bestPoints` decimal(8,2) default 0.0,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;

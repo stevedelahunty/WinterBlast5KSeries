@@ -26,10 +26,14 @@ $nameMapping = array(
 
 // Initialize
 $rsu = new RunSignup();
-$rsu->login("steve.delahunty@gmail.com", "MageNovus99!!");
+//$rsu->login("steve.delahunty@gmail.com", "MageNovus99!!");
+//var_dump($rsu);
+//exit(0);
+
+$recalcFinishers = true;
 
 // Do we delete everything?
-if (true) {
+if ($recalcFinishers == true) {
     $q = "delete from series_participants_winterblast";
     $db->query($q);
 }
@@ -44,19 +48,24 @@ $raceId = 173357;
 $eventName = 'Fit For The Holidays 1 miler';
 $eventId = 1068935;
 $rsetId = 0; //  doesn't matter.
-processRunSignupRace($db, "entrants", $raceId, $eventId, $rsetId, 'M', 1000, "race1");
-processRunSignupRace($db, "entrants", $raceId, $eventId, $rsetId, 'F', 1000, "race1");
+if ($recalcFinishers == true) {
+    processEntrants($db, "FitfortheHolidays.csv", $eventName, 'M', 1000, "race1");
+    processEntrants($db, "FitfortheHolidays.csv", $eventName, 'F', 1000, "race1");
+}
 
-$eventName = 'Fit For The Holidays 5K';
+$eventName = 'Fit for The Holidays 5k';
 $eventId = 1068936;
-processRunSignupRace($db, "entrants", $raceId, $eventId, $rsetId, 'M', 1000, "race1");
-processRunSignupRace($db, "entrants", $raceId, $eventId, $rsetId, 'F', 1000, "race1");
+if ($recalcFinishers == true) {
+    processEntrants($db, "FitfortheHolidays.csv", $eventName, 'M', 1000, "race1");
+    processEntrants($db, "FitfortheHolidays.csv", $eventName, 'F', 1000, "race1");
+}
 
-$eventName = 'Fit For The Holidays 30 min/day challenge';
+$eventName = 'Fit For the Holiday 30 min/day challenge';
 $eventId = 1068937;
-processRunSignupRace($db, "entrants", $raceId, $eventId, $rsetId, 'M', 1000, "race1");
-processRunSignupRace($db, "entrants", $raceId, $eventId, $rsetId, 'F', 1000, "race1");
-
+if ($recalcFinishers == true) {
+    processEntrants($db, "FitfortheHolidays.csv", $eventName, 'M', 1000, "race1");
+    processEntrants($db, "FitfortheHolidays.csv", $eventName, 'F', 1000, "race1");
+}
 
 // Race #2: (Race)  138320: NH Corn Hole Biathlon Race
 // Event: (Event)  1054829: 11/30/2025 10:00 - NH Corn Hole Biathlon 2.5 miler
@@ -66,8 +75,10 @@ $raceId = 138320;
 $eventName = 'NH Corn Hole Biathlon 2.5 miler';
 $eventId = 1054829;
 $rsetId = 612898;
-processRunSignupRace($db, "finishers", $raceId, $eventId, $rsetId, 'M', 1000, "race2");
-processRunSignupRace($db, "finishers", $raceId, $eventId, $rsetId, 'F', 1000, "race2");
+if ($recalcFinishers == true) {
+    processRunSignupRace($db, "finishers", $raceId, $eventId, $rsetId, 'M', 1000, "race2");
+    processRunSignupRace($db, "finishers", $raceId, $eventId, $rsetId, 'F', 1000, "race2");
+}
 
 // Now the 5 miler...
 // Race #2.5: (Race)  138320: NH Corn Hole Biathlon Race
@@ -78,8 +89,10 @@ $raceId = 138320;
 $eventName = 'NH Corn Hole Biathlon 5 miler';
 $eventId = 1054830;
 $rsetId = 612899;
-processRunSignupRace($db, "finishers", $raceId, $eventId, $rsetId, 'M', 1000, "race2");
-processRunSignupRace($db, "finishers", $raceId, $eventId, $rsetId, 'F', 1000, "race2");
+if ($recalcFinishers == true) {
+    processRunSignupRace($db, "finishers", $raceId, $eventId, $rsetId, 'M', 1000, "race2");
+    processRunSignupRace($db, "finishers", $raceId, $eventId, $rsetId, 'F', 1000, "race2");
+}
 
 // Race #4: (Race)  172769: The Great Gingerbread Run Run As Fast As You can 5k! (12/21 @10am)
 // Event: (Event)  1020748: 12/21/2025 10:00 - The Great Gingerbread Run Run As fast As You Can 5K
@@ -89,8 +102,10 @@ $raceId = 172769;
 $eventName = 'The Great Gingerbread Run Run As fast As You Can 5K';
 $eventId = 1020748;
 $rsetId = 615134;
-processRunSignupRace($db, "finishers", $raceId, $eventId, $rsetId, 'M', 1000, "race3");
-processRunSignupRace($db, "finishers", $raceId, $eventId, $rsetId, 'F', 1000, "race3");
+if ($recalcFinishers == true) {
+    processRunSignupRace($db, "finishers", $raceId, $eventId, $rsetId, 'M', 1000, "race3");
+    processRunSignupRace($db, "finishers", $raceId, $eventId, $rsetId, 'F', 1000, "race3");
+}
 
 // Race #5: (Race)  173314: Hopkinton 5k Series Race #1 1/18 @ 9 am
 // Event: (Event)  1059202: 1/18/2026 09:00 - Hopkinton Winter Series 5k Race#1
@@ -100,8 +115,10 @@ $raceId = 173314;
 $eventName = 'Hopkinton Winter Series 5k Race#1';
 $eventId = 1059202;
 $rsetId = 622238;
-processRunSignupRace($db, "finishers", $raceId, $eventId, $rsetId, 'M', 1000, "race4");
-processRunSignupRace($db, "finishers", $raceId, $eventId, $rsetId, 'F', 1000, "race4");
+if ($recalcFinishers == true) {
+    processRunSignupRace($db, "finishers", $raceId, $eventId, $rsetId, 'M', 1000, "race4");
+    processRunSignupRace($db, "finishers", $raceId, $eventId, $rsetId, 'F', 1000, "race4");
+}
 
 // Race #6: (Race)  157507: Hopkinton Winter 5k  Race 2, 2/1 @ 9:00 am)
 // Event: (Event)  1059354: 2/1/2026 09:00 - Hopkinton Winter Series 5k (9am)
@@ -111,8 +128,10 @@ $raceId = 157507;
 $eventName = 'Hopkinton Winter Series 5k Race#2';
 $eventId = 1059354;
 $rsetId = 624758;
-processRunSignupRace($db, "finishers", $raceId, $eventId, $rsetId, 'M', 1000, "race5");
-processRunSignupRace($db, "finishers", $raceId, $eventId, $rsetId, 'F', 1000, "race5");
+if ($recalcFinishers == true) {
+    processRunSignupRace($db, "finishers", $raceId, $eventId, $rsetId, 'M', 1000, "race5");
+    processRunSignupRace($db, "finishers", $raceId, $eventId, $rsetId, 'F', 1000, "race5");
+}
 
 // Race #7: (Race)  193215: Love On the Run 5k !
 // (Event)  1059753: 2/14/2026 09:00 - Love on The Run 5k!
@@ -122,8 +141,23 @@ $raceId = 193215;
 $eventName = 'Love on The Run 5k!';
 $eventId = 1059753;
 $rsetId = 626785;
-processRunSignupRace($db, "finishers", $raceId, $eventId, $rsetId, 'M', 1000, "race6");
-processRunSignupRace($db, "finishers", $raceId, $eventId, $rsetId, 'F', 1000, "race6");
+if ($recalcFinishers == true) {
+    processRunSignupRace($db, "finishers", $raceId, $eventId, $rsetId, 'M', 1000, "race6");
+    processRunSignupRace($db, "finishers", $raceId, $eventId, $rsetId, 'F', 1000, "race6");
+}
+
+// Race #8: (Race)  194455: Hopkinton Winter Series Race 3
+// (Event)  1069680: 3/1/2026 09:00 - Hopkinton Winter 5k 3
+// (Result Set): 628859: Overall Results
+$raceName = 'Hopkinton Winter Series Race 3';
+$raceId = 194455;
+$eventName = '';
+$eventId = 1069680;
+$rsetId = 628859;
+if ($recalcFinishers == true) {
+    processRunSignupRace($db, "finishers", $raceId, $eventId, $rsetId, 'M', 1000, "race7");
+    processRunSignupRace($db, "finishers", $raceId, $eventId, $rsetId, 'F', 1000, "race7");
+}
 
 
 // Total things up...
@@ -131,6 +165,10 @@ calculateTotals($db);
 
 generateTable($db, "leaderboard", "M");
 generateTable($db, "leaderboard", "F");
+
+generateTable2($db, "hopkinton", "M");
+generateTable2($db, "hopkinton", "F");
+
 
 calculateBest($db, 'M', 4);
 calculateBest($db, 'F', 4);
@@ -162,6 +200,7 @@ function calculateBest($db, $sex, $minRaces) {
         $points["Hop1"] = $row['race4Points'];
         $points["Hop2"] = $row['race5Points'];
         $points["Love"] = $row['race6Points'];
+        $points["Hop3"] = $row['race7Points'];
 //        $points["JoeKasper"] = $row['race4Points'];
 //        $points["Jenny"] = $row['race5Points'];
 //        $points["Hope"] = $row['race6Points'];
@@ -188,6 +227,7 @@ function calculateBest($db, $sex, $minRaces) {
         $q .= " where id=".$row['id'];
         $db->query($q);
         echo $q."\n";
+        exit(0);
     }
 
 }
@@ -250,7 +290,7 @@ function runsignupRace($row) {
         $participants = $rsu->getAllParticipants($row['raceId'], $row['eventId']);
         $idx=1;
         foreach ($results as $finisher) {
-            echo $idx++.") bib=".$finisher->bib." ".$finisher->first_name." ".$finisher->last_name."\n";
+//            echo $idx++.") bib=".$finisher->bib." ".$finisher->first_name." ".$finisher->last_name."\n";
             foreach ($participants as $p) {
 //                var_dump($p);
 //                exit(0);
@@ -330,6 +370,38 @@ function processiResultsRace($db, $results, $sex, $maxPoints, $raceName) {
 
 }
 
+function processEntrants($db, $filename, $eventName, $sex, $maxPoints, $raceName) {
+    global $nameMapping;
+
+    echo "---- Processing entrants from file ".$filename." for event ".$eventName.", gender=".$sex."\n";
+    $file = fopen($filename, "r");
+    $header = fgetcsv($file);
+  //  var_dump($header);
+    $firstNameCol = 0;
+    $lastNameCol = 1;
+    $cityCol = 2;
+    $stateCol = 3;
+    $sexCol = 4;
+    $ageCol = 5;
+    $eventCol = 6;
+
+    while (feof($file) == false) {
+        $row = fgetcsv($file);
+//        var_dump($row);
+        if ($row == false) continue;
+        if (trim($row[$eventCol]) != $eventName) continue;
+        if (trim($row[$sexCol]) != $sex) continue;
+
+        $fullName = trim($row[$firstNameCol])." ".trim($row[$lastNameCol]);
+        $fullName = checkForMappedName($fullName, $nameMapping);
+        $age = trim($row[$ageCol]);
+        $netTime = "";
+        $seconds = 0;
+        dbStore($db, $raceName."Points", $raceName."Time", $fullName, $sex, $age, 0, $netTime, $seconds, $maxPoints);
+    }
+
+}
+
 
 function processRunSignupRace($db, $eventType, $raceId, $eventId, $rsetId, $sex, $maxPoints, $raceName) {
     global $nameMapping;
@@ -337,13 +409,13 @@ function processRunSignupRace($db, $eventType, $raceId, $eventId, $rsetId, $sex,
     echo "--------\nProcessing RunSignup race: ".$raceName.", Sex=".$sex."   MaxPoints = ".$maxPoints."\n";
     $bestTime = 0;
 
-    $participants = $rsu->getAllParticipants($raceId, $eventId);
     if ($eventType == "entrants") {
+        $participants = $rsu->getAllParticipants($raceId, $eventId);
         foreach ($participants as $p) {
             if ($p->user->gender != $sex) continue;
             $fullName = $p->user->first_name." ".$p->user->last_name;
             $fullName = checkForMappedName($fullName, $nameMapping);
-            echo "Virtual person: ".$fullName . "\n";
+            //echo "Virtual person: ".$fullName . "\n";
             $age = 0;
             $place = 0;
             $netTime = "";
@@ -353,18 +425,20 @@ function processRunSignupRace($db, $eventType, $raceId, $eventId, $rsetId, $sex,
         }
         return;
     }
-    //echo $raceName."/".$eventName." - # participants = " . count($participants) . "\n";
+    echo "Getting results...\n";
     $results = $rsu->getRaceResultsById($raceId, $eventId, $rsetId);
     $idx = 1;
 
     // Need to get full names of kids under 13
-    foreach ($results as $finisher) {
-        echo $idx++ . ") bib=" . $finisher->bib . " " . $finisher->first_name . " " . $finisher->last_name . "\n";
-        foreach ($participants as $p) {
-            if ($p->bib_num == $finisher->bib) {
-                //echo "FOUND IT!  Name=" . $p->user->first_name . " " . $p->user->last_name . "\n";
-                $finisher->first_name = $p->user->first_name;
-                $finisher->last_name = $p->user->last_name;
+    if (false) {
+        foreach ($results as $finisher) {
+            //echo $idx++ . ") bib=" . $finisher->bib . " " . $finisher->first_name . " " . $finisher->last_name . "\n";
+            foreach ($participants as $p) {
+                if ($p->bib_num == $finisher->bib) {
+                    //echo "FOUND IT!  Name=" . $p->user->first_name . " " . $p->user->last_name . "\n";
+                    $finisher->first_name = $p->user->first_name;
+                    $finisher->last_name = $p->user->last_name;
+                }
             }
         }
     }
@@ -385,16 +459,16 @@ function processRunSignupRace($db, $eventType, $raceId, $eventId, $rsetId, $sex,
         if ($bestTime == 0) {
             $bestTime = $seconds;
         }
-        echo "Best time = ".$bestTime."\n";
+        //echo "Best time = ".$bestTime."\n";
         if ($bestTime == 0) return;
-        echo "max points = ".$maxPoints."\n";
-        echo "seconds = ".$seconds."\n";
+        //echo "max points = ".$maxPoints."\n";
+        //echo "seconds = ".$seconds."\n";
         if ($seconds == 0) continue;
 
         $points = ($bestTime/$seconds)*$maxPoints;
         $points = round($points, 2);
 
-        echo $place.": ".$fullName." ".$netTime."   ".$seconds."   Points=".$points."\n";
+        //echo $place.": ".$fullName." ".$netTime."   ".$seconds."   Points=".$points."\n";
         dbStore($db, $raceName."Points", $raceName."Time", $fullName, $sex, $age, $place, $netTime, $seconds, $points);
     }
 }
@@ -404,7 +478,7 @@ function dbStore($db, $pointsField, $timeField, $name, $sex, $age, $place, $time
     //echo $name . "   " . $place . "   " . $time . " - " . $seconds . "   Points = " . $points . "\n";
     $name = urlencode($name);
     $q = "select * from series_participants_winterblast where participantName='" . $name . "'";
-    echo $q."\n";
+    //echo $q."\n";
     $row = $db->singleRowQuery($q);
     //    echo $q."\n";
     if ($row != NULL) {
@@ -431,6 +505,8 @@ function dbStore($db, $pointsField, $timeField, $name, $sex, $age, $place, $time
 
 function calculateTotals($db) {
     global $ageGroups;
+
+    echo "Calculating totals for everyone.....\n";
 
     $q = "select * from series_participants_winterblast";
 
@@ -465,13 +541,6 @@ function calculateTotals($db) {
         $totalPoints2 += $points;
         if ($points > 0) $totalRaces2++;
 
-        $points = $row['race8'."Points"];
-        $totalPoints2 += $points;
-        if ($points > 0) $totalRaces2++;
-
-        $points = $row['race9'."Points"];
-        $totalPoints2 += $points;
-        if ($points > 0) $totalRaces2++;
 
         $q = "update series_participants_winterblast set totalPoints1=".$totalPoints1.", totalRaces1=".$totalRaces1." ";
         $q .= ", totalPoints2=".$totalPoints2.", totalRaces2=".$totalRaces2." ";
@@ -484,6 +553,8 @@ function calculateTotals($db) {
 
 
 function generateTable($db, $prefix, $sex) {
+
+    echo "Generating table #1 (full series)";
 
     $q = "select * from series_participants_winterblast where sex='".$sex."' and totalRaces1 > 0 ";
     $q .= " order by totalPoints1 desc";
@@ -503,12 +574,7 @@ function generateTable($db, $prefix, $sex) {
     $html .= "<th scope='col' align=left>Hop1</th>";
     $html .= "<th scope='col' align=left>Hop2</th>";
     $html .= "<th scope='col' align=left>Love</th>";
-//    $html .= "<th scope='col' align=left>Joe Kasper</th>";
-//    $html .= "<th scope='col' align=left>Jenny</th>";
-//    $html .= "<th scope='col' align=left>Hope</th>";
-//    $html .= "<th scope='col' align=left>D.A.R.E</th>";
-//    $html .= "<th scope='col' align=left>Walton5k</th>";
-//    $html .= "<th scope='col' align=left>Walton10k</th>";
+    $html .= "<th scope='col' align=left>Hop3</th>";
     $html .= "</tr>";
     $html .= "</thead>";
     $html .= "<tbody>";
@@ -526,6 +592,7 @@ function generateTable($db, $prefix, $sex) {
         $html .= "<td style='".$style."'>".$row['race4Points']."</td>";
         $html .= "<td style='".$style."'>".$row['race5Points']."</td>";
         $html .= "<td style='".$style."'>".$row['race6Points']."</td>";
+        $html .= "<td style='".$style."'>".$row['race7Points']."</td>";
 //        $html .= "<td style='".$style."'>".$row['race4Points']."</td>";
 //        $html .= "<td style='".$style."'>".$row['race5Points']."</td>";
 //        $html .= "<td style='".$style."'>".$row['race6Points']."</td>";
@@ -540,6 +607,8 @@ function generateTable($db, $prefix, $sex) {
 }
 
 function generateTable2($db, $prefix, $sex) {
+    echo "Generating table #2 (Hopkinton)";
+
     $q = "select * from series_participants_winterblast where sex='".$sex."' and totalRaces2 > 0 order by totalPoints2 desc";
 //    $q = "select * from scoring_participants where sex='".$sex."' order by totalPoints desc";
     $results = $db->query($q);
@@ -553,6 +622,7 @@ function generateTable2($db, $prefix, $sex) {
     $html .= "<th scope='col' align=left>Total Races</th>";
     $html .= "<th scope='col' align=left>Hop1</th>";
     $html .= "<th scope='col' align=left>Hop2</th>";
+    $html .= "<th scope='col' align=left>Love</th>";
     $html .= "<th scope='col' align=left>Hop3</th>";
     $html .= "</tr>";
     $html .= "</thead>";
@@ -568,6 +638,7 @@ function generateTable2($db, $prefix, $sex) {
         $html .= "<td style='".$style."'>".$row['race4Points']."</td>";
         $html .= "<td style='".$style."'>".$row['race5Points']."</td>";
         $html .= "<td style='".$style."'>".$row['race6Points']."</td>";
+        $html .= "<td style='".$style."'>".$row['race7Points']."</td>";
         $html .= "</tr>";
     }
     $html .= "</table>";

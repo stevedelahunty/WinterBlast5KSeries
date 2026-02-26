@@ -2,7 +2,7 @@
     <div class="container">
         <div class="section-title">
             <h2>Current Standings</h2>
-            <span>Next race is the Snow Or No We Go 5K</span>
+            <span>Next and final race is Hopkinton Race #3</span>
             <p></p>
         </div>
 <?php

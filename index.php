@@ -95,106 +95,118 @@
     <main id="main">
 
 
-<!-- About Section -->
-        <section id="about" class="about section">
+        <!-- About Section -->
+        <section id="seriesPrizes" class="about section">
 
-<div class="section-title" data-aos="ffade-up">
-                    <h2>The Prizes</h2>
-                    <span>10 deep for both males and females</span>
-                </div>        
+            <div class="section-title" data-aos="ffade-up">
+                <h2>Winter Series Prizes</h2>
+                <span>10 deep for both males and females
+                    <br>(These prizes are for those in the entire series)</span>
+            </div>
             <div class="container">
 
 
                 <div class="row gy-4">
-                <div class='col col-12 col-lg-4'>
-                    <table class="table table-striped w-75 mx-auto">
-                      <thead>
-                        <tr>
-                          <th scope="col">Place</th>
-                          <th scope="col">Prize</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row">1st</th>
-                            <td>$500.00</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2nd</th>
-                            <td>$250.00</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3rd</th>
-                            <td>$125.00</td>
-                        </tr>
-                  </tbody>
-                </table>
+                    <div class='col col-12 col-lg-4'>
+                        <table class="table table-striped w-75 mx-auto">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Place</th>
+                                    <th scope="col">Prize</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1st</th>
+                                    <td>$500.00</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2nd</th>
+                                    <td>$250.00</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3rd</th>
+                                    <td>$125.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
 
-                </div>
-                <div class='col col-12 col-lg-4'>
-                    <table class="table table-striped w-75 mx-auto">
-                      <thead>
-                        <tr>
-                          <th scope="col">Place</th>
-                          <th scope="col">Prize</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row">4th</th>
-                            <td>$100.00</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">5th</th>
-                            <td>$100.00</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">6th</th>
-                            <td>$100.00</td>
-                        </tr>
-                  </tbody>
-                </table>
-                </div>
-                <div class='col col-12 col-lg-4'>
-                    <table class="table table-striped w-75 mx-auto">
-                      <thead>
-                        <tr>
-                          <th scope="col">Place</th>
-                          <th scope="col">Prize</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row">7th</th>
-                            <td>$100.00</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">8th</th>
-                            <td>$100.00</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">9th</th>
-                            <td>$100.00</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">10th</th>
-                            <td>$100.00</td>
-                        </tr>
-                  </tbody>
-                </table>
-                </div>
+                    </div>
+                    <div class='col col-12 col-lg-4'>
+                        <table class="table table-striped w-75 mx-auto">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Place</th>
+                                    <th scope="col">Prize</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">4th</th>
+                                    <td>$100.00</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">5th</th>
+                                    <td>$100.00</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">6th</th>
+                                    <td>$100.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class='col col-12 col-lg-4'>
+                        <table class="table table-striped w-75 mx-auto">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Place</th>
+                                    <th scope="col">Prize</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">7th</th>
+                                    <td>$100.00</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">8th</th>
+                                    <td>$100.00</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">9th</th>
+                                    <td>$100.00</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">10th</th>
+                                    <td>$100.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
                 </div>
             </div>
         </section><!-- /About Section -->
 
+        <section id="seriesPrizes" class="about section">
 
-<!-- About Section -->
+            <div class="section-title" data-aos="ffade-up">
+                <h2>Hopkinton Series Prizes</h2>
+                <span>Everyone who runs all 3 Hopkinton races receive a fleece blanket</span>
+            </div>
+            <div class="container">
+
+            </div>
+        </section><!-- /About Section -->
+
+
+        <!-- About Section -->
         <section id="about" class="about section">
 
-<div class="section-title" data-aos="ffade-up">
-                    <h2>The Races</h2>
-                </div>        
+            <div class="section-title" data-aos="ffade-up">
+                <h2>The Races</h2>
+            </div>
             <div class="container">
 
 
@@ -205,7 +217,7 @@
                         <div class='position-relative'>
                             <h4><a href="https://runsignup.com/Race/NH/Concord/DeltaDentalNHCornholeBiathlon" class="stretched-link">Cornhole Biathlon</a></h4>
                             <h4 style='font-size: .8em;'>Sunday November 30, 2025 - Concord, NH</h4>
-                            <p>This sport is for everyone! Please join us for the third annual corn hole biathlon race!!. This is for walkers, runners, and corn hole players!  No experience necessary. Runners and walkers have options to run 2 or 4  1.25 mile laps. After each lap you must make 1 shot of corn hole before continuing on to the next lap, if you choose the 2 lap option then you visit the corn hole range once. If you choose the 4 lap option then you visit the range 3 times.
+                            <p>This sport is for everyone! Please join us for the third annual corn hole biathlon race!!. This is for walkers, runners, and corn hole players! No experience necessary. Runners and walkers have options to run 2 or 4 1.25 mile laps. After each lap you must make 1 shot of corn hole before continuing on to the next lap, if you choose the 2 lap option then you visit the corn hole range once. If you choose the 4 lap option then you visit the range 3 times.
                             </p>
                         </div>
                         <p>
@@ -249,7 +261,7 @@
                                     Hopkinton Winter 5k #1</a></h4>
                             <h4 style='font-size: .8em;'>Sunday, January 18, 2026 - Concord, NH</h4>
                             <p>
-                                Kick start the new year with the first Hopkinton 5k in our winter series!! This  is our 5th year with this special series. run all 3 races and receive a warm fleece Hopkinton Series blanket!
+                                Kick start the new year with the first Hopkinton 5k in our winter series!! This is our 5th year with this special series. run all 3 races and receive a warm fleece Hopkinton Series blanket!
                             </p>
                         </div>
                         <p>
@@ -270,7 +282,6 @@
                         <p>
                             <a href='https://runsignup.com/Race/Results/157507#resultSetId-624758;perpage:100'>Results</a>
                         </p>
-                        <!--a href='https://iresultslive.com/results/?eid=6420'>Results</a-->
                     </div><!-- Icon-Box -->
 
                     <div class="col-md-4 icon-box position-relative">
@@ -281,7 +292,9 @@
                         <p>
                             Valentine's Day 5k & Children's Run. Come join us this February 14th at 9am at Two Delta Dental.
                         </p>
-                        <p><i>Results link posted here when available</i></p>
+                        <p>
+                            <a href='https://runsignup.com/Race/Results/193215#resultSetId-626785;perpage:100'>Results</a>
+                        </p>
                     </div><!-- Icon-Box -->
 
                     <div class="col-md-4 icon-box position-relative">
@@ -301,7 +314,7 @@
                 </div>
             </div>
         </section><!-- /About Section -->
-        
+
         <?php
         //require_once("scoringInfo.php");
         require_once("results.php");
