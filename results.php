@@ -1,6 +1,6 @@
 <section id="standings" class="the-results section-bg">
     <div class="container">
-        <div class="section-title">
+        <div class="section-title d-print-none">
             <h2>Current Standings</h2>
             <span>Next and final race is Hopkinton Race #3</span>
             <p></p>
@@ -22,10 +22,10 @@ echo "<div id=results style='width: 100%; heightt: 800px;'>";
 if ($showStandings == true) {
 
   $tabs = array(
-    array("linkName" => "M", "text" => "Men Overall"),
-    array("linkName" => "F", "text" => "Women Overall"),
-//    array("linkName" => "BM", "text" => "Men's Best 4"),
-//    array("linkName" => "BF", "text" => "Women's Best 4"),
+    array("linkName" => "M", "text" => "Men Winterblast"),
+    array("linkName" => "F", "text" => "Women Winterblast"),
+    array("linkName" => "HM", "text" => "Men Hopkinton"),
+    array("linkName" => "HF", "text" => "Women Hopkinton"),
   );
   
   echo "<ul class='nav nav-tabs'>";
@@ -52,11 +52,11 @@ if ($showStandings == true) {
     if ($tabName == "M" || $tabName == "F") {
         $pageName = "scoring/2026/leaderboard_" . $tabName . ".html";
     }
-    else if ($tabName == "BM" || $tabName == "BF") {
-      if ($tabName == "BM")
-          $pageName = "scoring/2026/best_M.html";
+    else if ($tabName == "HM" || $tabName == "HF") {
+      if ($tabName == "HM")
+          $pageName = "scoring/2026/hopkinton_M.html";
         else
-          $pageName = "scoring/2026/best_F.html";
+          $pageName = "scoring/2026/hopkinton_F.html";
     }
 //  echo $pageName;
   if (file_exists(getcwd()."/".$pageName)) {

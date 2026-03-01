@@ -13,12 +13,19 @@ $nameMapping = array(
     "Johnathan Kovar" => "Jonathan Kovar",
     "Finn Kovar" => "Finnegan Kovar",
     "Chistopher Baerman" => "Christopher Baerman",
-//    "T. Wood" => "Tommy Wood",
-//    "P. Rizzo" => "Parker Rizzo",
-//    "L. Rizzo" => "Lillian Rizzo",
-//    "J. Klene" => "Jack Klene",
-//    "M. Klene" => "McKenna Klene",
-//    "E. Popham" => "Evelyn Popham",
+    "A. Lundquist" => "A. Lundquist",
+    "F. Groft" => "F. Groft",
+    "X. Sheetz" => "Xesca Sheetz",
+    "G. Sheetz" => "Gideon Sheetz",
+    "A. Sheetz" => "Althea Sheetz",
+    "D. Emerson" => "D. Emerson",
+    "T. Wood" => "Tommy Wood",
+    "E. Wood" => "Ella Wood",
+    "P. Rizzo" => "Parker Rizzo",
+    "L. Rizzo" => "Lillian Rizzo",
+    "J. Klene" => "Jack Klene",
+    "M. Klene" => "McKenna Klene",
+    "E. Popham" => "Evelyn Popham",
     "Thomas Raffio" => "Tom Raffio",
     "Nicholas Gosling" => "Nick Gosling"
     );
@@ -30,7 +37,7 @@ $rsu = new RunSignup();
 //var_dump($rsu);
 //exit(0);
 
-$recalcFinishers = true;
+$recalcFinishers = false;
 
 // Do we delete everything?
 if ($recalcFinishers == true) {
@@ -154,7 +161,7 @@ $raceId = 194455;
 $eventName = '';
 $eventId = 1069680;
 $rsetId = 628859;
-if ($recalcFinishers == true) {
+if (true) {
     processRunSignupRace($db, "finishers", $raceId, $eventId, $rsetId, 'M', 1000, "race7");
     processRunSignupRace($db, "finishers", $raceId, $eventId, $rsetId, 'F', 1000, "race7");
 }
@@ -163,18 +170,28 @@ if ($recalcFinishers == true) {
 // Total things up...
 calculateTotals($db);
 
+// Generate the main table
 generateTable($db, "leaderboard", "M");
 generateTable($db, "leaderboard", "F");
+
+// Calculate the hopkinton tables
+
+calculateHopkintonBest($db, 'M');
+calculateHopkintonBest($db, 'F');
 
 generateTable2($db, "hopkinton", "M");
 generateTable2($db, "hopkinton", "F");
 
 
-calculateBest($db, 'M', 4);
-calculateBest($db, 'F', 4);
 
-generateBestTable($db, "best", "M");
-generateBestTable($db, "best", "F");
+
+
+
+//calculateBest($db, 'M', 4);
+//calculateBest($db, 'F', 4);
+
+//generateBestTable($db, "best", "M");
+//generateBestTable($db, "best", "F");
 
 return;
 
@@ -182,6 +199,46 @@ return;
 
 
 
+
+function calculateHopkintonBest($db, $sex) {
+    $minRaces = 3;
+    echo "Calculating best 3 out of 4 for Hopkinton races...\n";
+    $q = "select * from series_participants_winterblast where ";
+    $q .= " sex='".$sex."'";
+
+    $results = $db->query($q);
+    echo "Number of entries to process = ".$results->rowCount()."\n";
+    foreach ($results as $row) {
+        $points = array();
+
+        $points["Hop1"] = $row['race4Points'];
+        $points["Hop2"] = $row['race5Points'];
+        $points["Love"] = $row['race6Points'];
+        $points["Hop3"] = $row['race7Points'];
+        arsort($points);
+        // Take the top 3.
+        $best = 0;
+        $bestText = "";
+        $count = 0;
+        $comma = "";
+
+        foreach ($points as $name=>$pt) {
+            $best += $pt;
+            $bestText .= $comma.trim($name)." (".$pt.")";
+            if (++$count >= $minRaces) break;
+            $comma=", ";
+        }
+        //var_dump($points);
+        //echo "Best = ".$best."\n";
+        //echo "BestText = ".$bestText."\n";
+        $q = "update series_participants_winterblast set bestPoints2=".$best.", bestText2='".$bestText."' ";
+        $q .= " where id=".$row['id'];
+        $db->query($q);
+        //echo $q."\n";
+//        exit(0);
+    }
+
+}
 
 function calculateBest($db, $sex, $minRaces) {
     echo "Calculating best ".$minRaces." for everone.....\n";
@@ -554,7 +611,7 @@ function calculateTotals($db) {
 
 function generateTable($db, $prefix, $sex) {
 
-    echo "Generating table #1 (full series)";
+    echo "Generating table #1 (full series)\n";
 
     $q = "select * from series_participants_winterblast where sex='".$sex."' and totalRaces1 > 0 ";
     $q .= " order by totalPoints1 desc";
@@ -570,7 +627,7 @@ function generateTable($db, $prefix, $sex) {
     $html .= "<th scope='col' align=left>Total Races</th>";
     $html .= "<th scope='col' align=left>Virtual</th>";
     $html .= "<th scope='col' align=left>CornHole</th>";
-    $html .= "<th scope='col' align=left>Gingerbread</th>";
+    $html .= "<th scope='col' align=left>Gbread</th>";
     $html .= "<th scope='col' align=left>Hop1</th>";
     $html .= "<th scope='col' align=left>Hop2</th>";
     $html .= "<th scope='col' align=left>Love</th>";
@@ -607,7 +664,7 @@ function generateTable($db, $prefix, $sex) {
 }
 
 function generateTable2($db, $prefix, $sex) {
-    echo "Generating table #2 (Hopkinton)";
+    echo "Generating table #2 (Hopkinton)\n";
 
     $q = "select * from series_participants_winterblast where sex='".$sex."' and totalRaces2 > 0 order by totalPoints2 desc";
 //    $q = "select * from scoring_participants where sex='".$sex."' order by totalPoints desc";
@@ -624,6 +681,7 @@ function generateTable2($db, $prefix, $sex) {
     $html .= "<th scope='col' align=left>Hop2</th>";
     $html .= "<th scope='col' align=left>Love</th>";
     $html .= "<th scope='col' align=left>Hop3</th>";
+    $html .= "<th scope='col' align=left>Best 3 out of 4</th>";
     $html .= "</tr>";
     $html .= "</thead>";
     $html .= "<tbody>";
@@ -639,6 +697,7 @@ function generateTable2($db, $prefix, $sex) {
         $html .= "<td style='".$style."'>".$row['race5Points']."</td>";
         $html .= "<td style='".$style."'>".$row['race6Points']."</td>";
         $html .= "<td style='".$style."'>".$row['race7Points']."</td>";
+        $html .= "<td style='".$style."'>".$row['bestText2']."</td>";
         $html .= "</tr>";
     }
     $html .= "</table>";

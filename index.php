@@ -73,7 +73,7 @@
     </header><!-- End Header -->
 
     <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex align-items-center">
+    <section id="hero" class="d-flex align-items-center d-print-none">
 
         <div class="container">
             <div class="row">
@@ -96,7 +96,7 @@
 
 
         <!-- About Section -->
-        <section id="seriesPrizes" class="about section">
+        <section id="seriesPrizes" class="about section d-print-none">
 
             <div class="section-title" data-aos="ffade-up">
                 <h2>Winter Series Prizes</h2>
@@ -189,7 +189,7 @@
             </div>
         </section><!-- /About Section -->
 
-        <section id="seriesPrizes" class="about section">
+        <section id="seriesPrizes" class="about section d-print-none">
 
             <div class="section-title" data-aos="ffade-up">
                 <h2>Hopkinton Series Prizes</h2>
@@ -202,7 +202,7 @@
 
 
         <!-- About Section -->
-        <section id="about" class="about section">
+        <section id="about" class="about section d-print-none">
 
             <div class="section-title" data-aos="ffade-up">
                 <h2>The Races</h2>

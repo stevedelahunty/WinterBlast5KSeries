@@ -34,7 +34,9 @@ CREATE TABLE `series_participants_winterblast` (
   `divisionPlace2` int(4) default 0,
   `totalRaces1` int(4) default 0,
   `totalRaces2` int(4) default 0,
-  `bestText` varchar(1024) default '',
-  `bestPoints` decimal(8,2) default 0.0,
+  `bestText1` varchar(1024) default '',
+  `bestPoints1` decimal(8,2) default 0.0,
+  `bestText2` varchar(1024) default '',
+  `bestPoints2` decimal(8,2) default 0.0,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
